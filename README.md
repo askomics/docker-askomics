@@ -1,0 +1,2 @@
+# docker-askomics
+AskOmics dockerized

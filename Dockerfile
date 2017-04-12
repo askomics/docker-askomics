@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM ubuntu
 MAINTAINER Olivier Filangi "olivier.filangi@inra.fr"
 
 ENV ASKOMICS=https://github.com/askomics/askomics.git
@@ -15,36 +15,13 @@ RUN apt-get update && apt-get install -y \
   npm \
   nodejs-legacy
 
-# NPM packages
-RUN npm config set prefix /usr/local && \
-    npm install gulp -g && \
-    npm install gulp \
-                gulp-util \
-                gulp-concat \
-                gulp-babel \
-                babel-preset-es2015 \
-                gulp-mocha \
-                gulp-mocha-phantomjs \
-                shoul \
-                mocha \
-                chai \
-                jshint \
-                gulp-jshint \
-                mocha-phantomjs-istanbul \
-                gulp-istanbul \
-                gulp-istanbul-report \
-                gulp-inject \
-                intro.js \
-                bluebird \
-                any-promise \
-                gulp-uglify --save-dev && \
-    gem install coveralls-lcov
-
 RUN git config --global http.sslVerify false
 RUN git clone $ASKOMICS /usr/local/askomics/
 
 WORKDIR /usr/local/askomics/
 
+RUN npm install gulp -g
+RUN npm install
 RUN chmod +x startAskomics.sh
 
 # Delete the local venv if exist and build the new one

@@ -1,32 +1,22 @@
-FROM ubuntu
+FROM alpine
 MAINTAINER Olivier Filangi "olivier.filangi@inra.fr"
 
-ENV ASKOMICS=https://github.com/askomics/askomics.git
-
 # Prerequisites
-RUN apt-get update && apt-get install -y \
-  git \
-  build-essential \
-  python3 \
-  python3-pip \
-  python3-venv \
-  vim \
-  ruby \
-  npm \
-  nodejs-legacy
+RUN apk add --update bash make gcc g++ zlib-dev libzip-dev bzip2-dev xz-dev git python3 python3-dev nodejs nodejs-npm
 
-RUN git config --global http.sslVerify false
+ENV ASKOMICS=https://github.com/askomics/askomics.git
+# ENV ASKOMICS_COMMIT=ff0a21d465f172715cbcbd71d3e87f2016bb4a01
+
 RUN git clone $ASKOMICS /usr/local/askomics/
-
 WORKDIR /usr/local/askomics/
+# RUN git checkout $ASKOMICS_COMMIT
 
 RUN npm install gulp -g
 RUN npm install
-RUN chmod +x startAskomics.sh
 
-# Delete the local venv if exist and build the new one
-RUN rm -rf /usr/local/askomics/venv && \
-    ./startAskomics.sh -b
+RUN chmod +x startAskomics.sh
+RUN rm -rf /usr/local/askomics/venv
+RUN bash ./startAskomics.sh -b
 
 EXPOSE 6543
-CMD ["./startAskomics.sh", "-r"]
+CMD ["bash", "./startAskomics.sh", "-r"]

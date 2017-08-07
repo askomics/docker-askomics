@@ -1,0 +1,18 @@
+version: '2'
+services:
+    askomics:
+        image: askomics
+        command: ./startAskomics.sh -r -t virtuoso -d dev
+        environment:
+            TRIPLESTORE_ENDPOINT: "http://virtuoso:8890/sparql"
+            ASKOMICS_LOAD_URL: "http://askomics:6543"
+            TRIPLESTORE_ENDPOINT_USERNAME : dba
+            TRIPLESTORE_ENDPOINT_PASSWD : dba
+        ports:
+            - "6543:6543"
+    virtuoso:
+        image: xgaia/virtuoso
+        environment:
+            SPARQL_UPDATE: "true"
+            DBA_PASSWORD: "dba"
+            DEFAULT_GRAPH: "http://localhost:8890/DAV"

@@ -1,10 +1,10 @@
+sudo: required
 services:
   - docker
 install:
   - docker build -t askomics .
   - docker pull xgaia/virtuoso
-  - docker run -p 8890:8890 --name test_virtuoso xgaia/virtuoso 
-  - docker run -p 6543:6543 --name test_askomics askomics
+  - docker-compose -f tests/docker-compose.yml up
 script:
-  - docker ps | grep -q test_askomics
-  - curl http://localhost:6543
+  - sleep 30
+  - "curl -v -H \"X-Requested-With: XMLHttpRequest\" -X GET -u http://localhost:6543/startpoints"

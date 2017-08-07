@@ -4,7 +4,7 @@ services:
 install:
   - docker build -t askomics .
   - docker pull xgaia/virtuoso
-  - docker-compose -f tests/docker-compose.yml up
+  - docker-compose -d -f tests/docker-compose.yml up
 script:
   - sleep 30
   - "curl -v -H \"X-Requested-With: XMLHttpRequest\" -X GET -u http://localhost:6543/startpoints"

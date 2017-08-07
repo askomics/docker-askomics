@@ -1,0 +1,10 @@
+services:
+  - docker
+install:
+  - docker build -t askomics .
+  - docker pull xgaia/virtuoso
+  - docker run -p 8890:8890 --name test_virtuoso xgaia/virtuoso 
+  - docker run -p 6543:6543 --name test_askomics askomics
+script:
+  - docker ps | grep -q test_askomics
+  - curl http://localhost:6543

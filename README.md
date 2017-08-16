@@ -5,6 +5,11 @@
 
 AskOmics dockerized
 
+This repository contain 2 docker file:
+
+- Dockerfile_versioned: build image from the latest release of AskOmics (stable)
+- Dockerfile: buil image from the master branch of AskOmics (unstable, development version)
+
 ## Pull from dockerHub
 
     docker pull askomics/docker-askomics

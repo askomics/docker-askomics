@@ -4,7 +4,7 @@ MAINTAINER Olivier Filangi "olivier.filangi@inra.fr"
 # Environment variables
 ENV ASKOMICS="https://github.com/askomics/askomics.git" \
     ASKOMICS_DIR="/usr/local/askomics" \
-    ASKOMICS_VERSION="master"
+    ASKOMICS_VERSION="17.09"
 
 # Install prerequisites, clone repository and install
 RUN apk add --update bash make gcc g++ zlib-dev libzip-dev bzip2-dev xz-dev git python3 python3-dev nodejs nodejs-npm && \

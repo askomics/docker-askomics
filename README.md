@@ -8,20 +8,18 @@ AskOmics dockerized
 
 ## Pull from dockerHub
 
-    docker pull askomics/docker-askomics
+    docker pull askomics/askomics
 
 ## Or build
 
     # Clone the repo
-    git clone https://github.com/askomics/askomics.git
+    git clone https://github.com/askomics/docker-askomics.git
     cd askomics
     docker build -t askomics .
 
 ## Run
 
-    docker run --name myAskOmics \
-        -p 6543:6543 \
-        d askomics/docker-askomics
+    docker run --name askomics -p 6543:6543 d askomics/askomics
 
 
 ## .ini configuration

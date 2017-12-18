@@ -11,7 +11,7 @@ services:
         ports:
             - "6543:6543"
     virtuoso:
-        image: xgaia/virtuoso
+        image: askomics/virtuoso
         environment:
             SPARQL_UPDATE: "true"
             DBA_PASSWORD: "dba"

@@ -3,7 +3,7 @@ services:
   - docker
 install:
   - docker build -t askomics .
-  - docker pull xgaia/virtuoso
+  - docker pull askomics/virtuoso
   - docker-compose -f tests/docker-compose.yml up -d
 before_script:
    - sleep 45

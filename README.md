@@ -1,6 +1,5 @@
+# AskOmics : a visual SPARQL query builder for RDF database RDF 
 [![Docker Build](https://img.shields.io/docker/pulls/askomics/askomics.svg)](https://hub.docker.com/r/askomics/askomics/)
-AskOmics dockerized
-
 
 ## Pull from dockerHub
 

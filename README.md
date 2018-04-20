@@ -1,8 +1,4 @@
-# docker-askomics
-
-![Docker Build](https://img.shields.io/docker/pulls/askomics/docker-askomics.svg)
-[![Build Status](https://travis-ci.org/askomics/docker-askomics.svg?branch=master)](https://travis-ci.org/askomics/docker-askomics)
-
+[![Docker Build](https://img.shields.io/docker/pulls/askomics/askomics.svg)](https://hub.docker.com/r/askomics/askomics/)
 AskOmics dockerized
 
 

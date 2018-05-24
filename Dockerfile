@@ -3,14 +3,12 @@ MAINTAINER Olivier Filangi "olivier.filangi@inra.fr"
 
 # Environment variables
 ENV ASKOMICS="https://github.com/askomics/askomics.git" \
-    ASKOMICS_DIR="/usr/local/askomics" \
-    ASKOMICS_VERSION="17.12"
+    ASKOMICS_DIR="/usr/local/askomics"
 
 # Install prerequisites, clone repository and install
-RUN apk add --update bash make gcc g++ zlib-dev libzip-dev bzip2-dev xz-dev git python3 python3-dev nodejs nodejs-npm && \
+RUN apk add --update bash make gcc g++ zlib-dev libzip-dev bzip2-dev xz-dev git python3 python3-dev nodejs nodejs-npm linux-headers && \
     git clone ${ASKOMICS} ${ASKOMICS_DIR} && \
     cd ${ASKOMICS_DIR} && \
-    git checkout -b ${ASKOMICS_VERSION} origin/${ASKOMICS_VERSION} && \
     npm install gulp -g && \
     npm install --production && \
     chmod +x startAskomics.sh && \

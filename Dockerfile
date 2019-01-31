@@ -7,7 +7,7 @@ ENV ASKOMICS="https://github.com/askomics/askomics.git" \
     ASKOMICS_VERSION="master"
 
 # Install prerequisites, clone repository and install
-RUN apk add --update bash make gcc g++ zlib-dev libzip-dev bzip2-dev xz-dev git python3 python3-dev nodejs nodejs-npm linux-headers && \
+RUN apk add --update bash make gcc g++ zlib-dev libzip-dev bzip2-dev xz-dev git python3 python3-dev nodejs nodejs-npm linux-headers openldap-dev && \
     git clone -b ${ASKOMICS_VERSION} --single-branch --depth=1 ${ASKOMICS} ${ASKOMICS_DIR} && \
     cd ${ASKOMICS_DIR} && \
     npm install --production && \
